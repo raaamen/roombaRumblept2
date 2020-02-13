@@ -2,24 +2,27 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - BalloonMoveShake
-    - CollisionCheck
     - GameManagerScript
+    - RoombaManager
     - RoombaMovement
     - UniHumanoid.HumanPoseClip
+    - attackScript
+    - chargingStation
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimatorControllerTool
+    - TMPro.TextMeshPro
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
+    UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
     com.unity.multiplayer-hlapi.Runtime.dll:
     - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
@@ -68,40 +71,62 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9940}
+      Script: {instanceID: 9712}
     - Class: 114
-      Script: {instanceID: 10030}
+      Script: {instanceID: 9836}
     - Class: 114
-      Script: {instanceID: 10506}
+      Script: {instanceID: 9942}
     - Class: 114
-      Script: {instanceID: 10686}
+      Script: {instanceID: 9984}
     - Class: 114
-      Script: {instanceID: 10832}
+      Script: {instanceID: 10032}
     - Class: 114
-      Script: {instanceID: 10884}
+      Script: {instanceID: 10384}
     - Class: 114
-      Script: {instanceID: 11122}
+      Script: {instanceID: 10478}
     - Class: 114
-      Script: {instanceID: 11204}
+      Script: {instanceID: 10508}
     - Class: 114
-      Script: {instanceID: 11266}
+      Script: {instanceID: 10688}
     - Class: 114
-      Script: {instanceID: 11284}
+      Script: {instanceID: 10834}
     - Class: 114
-      Script: {instanceID: 11432}
+      Script: {instanceID: 10886}
     - Class: 114
-      Script: {instanceID: 11584}
+      Script: {instanceID: 11124}
     - Class: 114
-      Script: {instanceID: 11792}
+      Script: {instanceID: 11206}
     - Class: 114
-      Script: {instanceID: 11986}
+      Script: {instanceID: 11268}
     - Class: 114
-      Script: {instanceID: 14412}
+      Script: {instanceID: 11286}
+    - Class: 114
+      Script: {instanceID: 11434}
+    - Class: 114
+      Script: {instanceID: 11594}
+    - Class: 114
+      Script: {instanceID: 11794}
+    - Class: 114
+      Script: {instanceID: 11922}
+    - Class: 114
+      Script: {instanceID: 11988}
+    - Class: 114
+      Script: {instanceID: 12052}
+    - Class: 114
+      Script: {instanceID: 12076}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -152,6 +177,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LightningBolt
+  - hash:
+      serializedVersion: 2
+      Hash: e02d60264cda3bde8318c551211e7927
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: chargingStation
   - hash:
       serializedVersion: 2
       Hash: 5bd9a19c7b5f76c563418e28f48a561b
@@ -346,7 +377,7 @@ ScriptsOnlyBuild:
     className: RuntimeBvhLoader
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: c109c2501b70ae3fc3f9ec21aa8e6626
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RoombaManager
@@ -412,7 +443,7 @@ ScriptsOnlyBuild:
     className: LightningAttack
   - hash:
       serializedVersion: 2
-      Hash: 934a425923e226f09155580802e0a7c7
+      Hash: 230b591c50eb20aae9a9d1ff110430ad
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RoombaMovement
@@ -592,7 +623,7 @@ ScriptsOnlyBuild:
     className: StinkHit
   - hash:
       serializedVersion: 2
-      Hash: 5c796c6f2a7b28a857d498f187b2899d
+      Hash: 59bb3ff75a2e017914de469db6904622
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManagerScript
@@ -886,6 +917,12 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: attackScript
+  - hash:
+      serializedVersion: 2
       Hash: 7072231382eb3c4871b3dd75ad0227e1
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -911,4 +948,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Unity Projects/RR Build/RoombaRampagee.exe
+  playerPath: C:/Users/ryan-/Dropbox/hahahahackbca/RoombaRampagee.exe

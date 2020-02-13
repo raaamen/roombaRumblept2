@@ -20,6 +20,8 @@ public class GameManagerScript : NetworkBehaviour
 
     public GameObject beginningimage;
 
+    public Material[] balloonMats;
+
     // Start is called before the first frame update
     void Start()
     {
