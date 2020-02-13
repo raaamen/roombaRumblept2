@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoombaMovement : MonoBehaviour
 {
 
-    public bool gameStarted;
+    public bool gameStarted = false;
 
 
     /*keys for players are as following
