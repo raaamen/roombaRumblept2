@@ -20,6 +20,7 @@ public class RoombaManager : NetworkBehaviour
     public int balloonRespawnTime;
     public int invulnerabilityTime;
 
+    public GameObject knife;
     public GameObject balloon;
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,7 @@ public class RoombaManager : NetworkBehaviour
         if (invulnerable) {
             return;
         }
+        knife.GetComponent<AudioSource>().Play();
         balloon.SetActive(false);
         alive = false;
         StartCoroutine("respawnBalloon");
