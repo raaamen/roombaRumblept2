@@ -9,7 +9,7 @@ public class RoombaManager : NetworkBehaviour
     public bool alive = true;
 
     [SyncVar]
-    public int team = 0;
+    public int team;
 
     [SyncVar]
     public int dust_collected;
@@ -20,19 +20,12 @@ public class RoombaManager : NetworkBehaviour
     public int balloonRespawnTime;
     public int invulnerabilityTime;
 
-    public GameObject playerIndicator;
-
+    public GameObject knife;
     public GameObject balloon;
-
-    public GameManagerScript gm_script;
     // Start is called before the first frame update
     void Start()
     {
-        if (!isLocalPlayer) {
-            playerIndicator.active = false;
-        }
-        gm_script = GameObject.FindWithTag("GameController").GetComponent<GameManagerScript>();
-        RpcChangeBalloon(true,team*2);
+
     }
 
     // Update is called once per frame
@@ -41,38 +34,24 @@ public class RoombaManager : NetworkBehaviour
         
     }
 
-    [Command]
-    public void CmdPopBalloon()
+    public void popBalloon()
     {
-        if (invulnerable || !alive) {
+        if (invulnerable) {
             return;
         }
+        knife.GetComponent<AudioSource>().Play();
         balloon.SetActive(false);
         alive = false;
-        RpcChangeBalloon(false,-1);
-        StartCoroutine("RespawnBalloon");
+        StartCoroutine("respawnBalloon");
     }
 
-    public IEnumerator RespawnBalloon()
+    public IEnumerator respawnBalloon()
     {
-        if (alive) {
-            yield return null;
-        }
         yield return new WaitForSeconds(balloonRespawnTime);
         balloon.SetActive(true);
-        RpcChangeBalloon(true,team*2+1);
         alive = true;
         invulnerable = true;
         yield return new WaitForSeconds(invulnerabilityTime);
-        RpcChangeBalloon(true,team*2);
         invulnerable = false;
-    }
-
-    [ClientRpc]
-    public void RpcChangeBalloon(bool state,int colorIndex) {
-        balloon.SetActive(state);
-        if (colorIndex != -1) {
-            balloon.GetComponent<MeshRenderer>().material = gm_script.balloonMats[colorIndex];
-        }
     }
 }
