@@ -51,8 +51,8 @@ public class RoombaMovement : NetworkBehaviour
     public GameManagerScript gameManagerScript;
 
     public bool collidingWithBalloon;
-    public bool canMove;
     public bool hasBalloon;
+    public RoombaManager r_man;
 
     // Start is called before the first frame update
 
@@ -65,7 +65,7 @@ public class RoombaMovement : NetworkBehaviour
         }
         rb = GetComponent<Rigidbody>();
         gameManagerScript = gameManager.GetComponent<GameManagerScript>();
-
+        r_man = GetComponent<RoombaManager>();
     }
 
     void Start()
@@ -78,19 +78,13 @@ public class RoombaMovement : NetworkBehaviour
         gameManagerScript = gameManager.GetComponent<GameManagerScript>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         if (!isLocalPlayer)
         {
             return;
         }
-        if (gameManagerScript.gameStarted && canMove)
+        if (gameManagerScript.gameStarted && r_man.alive)
         {
             if (Input.GetKey(upKey))
             {
@@ -118,6 +112,7 @@ public class RoombaMovement : NetworkBehaviour
 
         }
     }
+<<<<<<< HEAD
 
     public void popBalloon()
     {
@@ -133,4 +128,6 @@ public class RoombaMovement : NetworkBehaviour
         canMove = true;
     }
 
+=======
+>>>>>>> 22cb7dd606d999a5e4742cdf4dac681b6567f876
 }

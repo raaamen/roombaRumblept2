@@ -20,11 +20,11 @@ public class attackScript : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.tag == "Balloon")
+        if (collider.gameObject.tag == "Balloon")
         {
-            transform.parent.gameObject.GetComponent<RoombaMovement>().popBalloon();
+            collider.gameObject.transform.parent.gameObject.GetComponent<RoombaManager>().popBalloon();
         }
     }
 
