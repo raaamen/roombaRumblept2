@@ -24,6 +24,8 @@ public class RoombaMovement : NetworkBehaviour
      * 
      * */
 
+    public int balloonRespawnTime;
+
     public KeyCode key;
 
     public KeyCode upKey;
@@ -42,28 +44,33 @@ public class RoombaMovement : NetworkBehaviour
     // public GameObject target;
     // public GameObject enemyBalloon;
     public GameObject gameManager;
+    public GameObject balloon;
 
     // private GameObject balloon;
 
     public GameManagerScript gameManagerScript;
 
     public bool collidingWithBalloon;
+    public bool canMove;
+    public bool hasBalloon;
 
     // Start is called before the first frame update
 
     private void Awake()
     {
-        if (!gameManager) {
+        if (!gameManager)
+        {
             gameManager = GameObject.FindWithTag("GameController");
         }
         rb = GetComponent<Rigidbody>();
         gameManagerScript = gameManager.GetComponent<GameManagerScript>();
-        
+
     }
 
     void Start()
     {
-        if (!gameManager) {
+        if (!gameManager)
+        {
             gameManager = GameObject.FindWithTag("GameController");
         }
         rb = GetComponent<Rigidbody>();
@@ -73,14 +80,20 @@ public class RoombaMovement : NetworkBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!isLocalPlayer) {
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (!isLocalPlayer)
+        {
             return;
         }
-        if (gameManagerScript.gameStarted)
+        if (gameManagerScript.gameStarted && canMove)
         {
             if (Input.GetKey(upKey))
             {
-                rb.AddForce(transform.forward*-moveSpeed);
+                rb.AddForce(transform.forward * -moveSpeed);
             }
             else if (Input.GetKey(downKey))
             {
@@ -89,7 +102,7 @@ public class RoombaMovement : NetworkBehaviour
             else if (Input.GetKey(rightKey))
             {
                 //changing y rotation
-                transform.Rotate(0, rotationSpeed*Time.deltaTime, 0);
+                transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
             }
             else if (Input.GetKey(leftKey))
             {
@@ -104,4 +117,19 @@ public class RoombaMovement : NetworkBehaviour
 
         }
     }
+
+    public void popBalloon()
+    {
+        balloon.SetActive(false);
+        canMove = false;
+
+    }
+
+    public IEnumerator respawnBalloon()
+    {
+        yield return new WaitForSeconds(balloonRespawnTime);
+        balloon.SetActive(true);
+        canMove = true;
+    }
+
 }
