@@ -71,7 +71,7 @@ public class RoombaMovement : NetworkBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!isLocalPlayer) {
             return;

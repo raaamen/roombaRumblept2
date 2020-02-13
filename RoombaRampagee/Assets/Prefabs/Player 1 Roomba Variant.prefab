@@ -76,14 +76,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 3
-  m_SendInterval: 0.1
+  m_SendInterval: 0.033333335
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
-  m_SyncSpin: 0
+  m_SyncSpin: 1
   m_MovementTheshold: 0.001
   m_VelocityThreshold: 0.0001
   m_SnapThreshold: 5
-  m_InterpolateRotation: 1
+  m_InterpolateRotation: 0
   m_InterpolateMovement: 1
 --- !u!114 &988441721
 MonoBehaviour:
@@ -107,9 +107,6 @@ MonoBehaviour:
   moveSpeed: 30
   rotationSpeed: 150
   rb: {fileID: 0}
-  knife: {fileID: 0}
-  target: {fileID: 0}
-  enemyBalloon: {fileID: 0}
   gameManager: {fileID: 0}
   gameManagerScript: {fileID: 0}
   collidingWithBalloon: 0
@@ -136,10 +133,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7267504806794810050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49bf0f56ccce94948a44510390388d23, type: 3}
+  m_Script: {fileID: 11500000, guid: fe472c3cb61e0e841acb8032a6e6dd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roombaParent: {fileID: 7267504805146266259}
   roombaScript: {fileID: 0}
 --- !u!1001 &1727886970530401227
 PrefabInstance:
@@ -241,7 +237,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 2f8ca5f8b17f83e4fb0cd2e18ff1f98c,
         type: 3}
       propertyPath: m_Name
-      value: Player 1 Roomba
+      value: Player 1 Roomba Variant
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2f8ca5f8b17f83e4fb0cd2e18ff1f98c,
         type: 3}

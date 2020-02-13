@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - BalloonMoveShake
+    - CollisionCheck
     - GameManagerScript
     - RoombaMovement
     - UniHumanoid.HumanPoseClip
@@ -89,11 +90,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11432}
     - Class: 114
+      Script: {instanceID: 11584}
+    - Class: 114
       Script: {instanceID: 11792}
     - Class: 114
       Script: {instanceID: 11986}
     - Class: 114
-      Script: {instanceID: 14332}
+      Script: {instanceID: 14412}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
