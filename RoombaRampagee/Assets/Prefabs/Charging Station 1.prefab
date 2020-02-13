@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2593616780596645489}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -44.006233, y: 0.020658793, z: -7.11}
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children:
@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c9f2bf0b9e179b45924ec05d661c5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dustCollected: 0
+  text: {fileID: 3096524310526396979}
+  team: 0
 --- !u!1 &3096524310526396979
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +142,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3096524310526396979}
   m_LocalRotation: {x: 0.5000002, y: 0.49999982, z: -0.49999994, w: 0.5000001}
-  m_LocalPosition: {x: 0, y: 0, z: -1.35}
+  m_LocalPosition: {x: 0, y: 0, z: -8.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2593616780596548177}
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sample text
+  m_text: 'Blue Team Score: 4'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -259,7 +260,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 258
+  m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -293,10 +294,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 2.6163461, w: 0}
   m_textInfo:
     textComponent: {fileID: 3096524310526396977}
-    characterCount: 11
+    characterCount: 18
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 3
+    wordCount: 4
     linkCount: 0
     lineCount: 1
     pageCount: 1

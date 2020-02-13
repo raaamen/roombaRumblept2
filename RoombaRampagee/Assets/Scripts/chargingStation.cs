@@ -9,10 +9,13 @@ public class chargingStation : MonoBehaviour
 
     public GameObject text;
 
+    public int team;
+    //1 is blue 0 is red
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        updateText(0);
     }
 
     // Update is called once per frame
@@ -21,9 +24,9 @@ public class chargingStation : MonoBehaviour
         
     }
 
-    void updateText(int teamnum, int num)
+    void updateText(int num)
     {
-        switch (teamnum)
+        switch (team)
         {
             case 1:
                 text.GetComponent<TMP_Text>().text = "Blue Team Score: " + num;
@@ -37,15 +40,10 @@ public class chargingStation : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        /**if (collision.gameObject.tag == "Roomba")
+        if (collision.gameObject.tag == "Roomba")
         {
-            switch (collision.gameObject.GetComponent<RoombaManager>().)
-            {
-                default:
-                    break;
-            }
-            updateText();
+            updateText(collision.gameObject.GetComponent<RoombaManager>().dust_collected);
         }
-    */
+    
     }
 }
