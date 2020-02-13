@@ -54,6 +54,8 @@ public class RoombaMovement : NetworkBehaviour
     public bool hasBalloon;
     public RoombaManager r_man;
 
+    public AudioSource audiosource;
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -65,6 +67,7 @@ public class RoombaMovement : NetworkBehaviour
         rb = GetComponent<Rigidbody>();
         gameManagerScript = gameManager.GetComponent<GameManagerScript>();
         r_man = GetComponent<RoombaManager>();
+        audiosource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -87,19 +90,29 @@ public class RoombaMovement : NetworkBehaviour
         {
             if (Input.GetKey(upKey))
             {
+                audiosource.Play();
                 rb.AddForce(transform.forward * -moveSpeed);
             }
             else if (Input.GetKey(downKey))
             {
+                audiosource.Play();
                 rb.AddForce(transform.forward * moveSpeed);
             }
             else if (Input.GetKey(rightKey))
             {
+                if (audiosource.isPlaying)
+                {
+                    audiosource.Stop();
+                }
                 //changing y rotation
                 transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
             }
             else if (Input.GetKey(leftKey))
             {
+                if (audiosource.isPlaying)
+                {
+                    audiosource.Stop();
+                }
                 transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
             }
 
