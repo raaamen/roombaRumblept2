@@ -29,6 +29,7 @@ public class RoombaMovement : MonoBehaviour
     public KeyCode downKey;
     public KeyCode rightKey;
     public KeyCode leftKey;
+    public KeyCode attackKey;
 
 
     public float moveSpeed;
@@ -36,12 +37,22 @@ public class RoombaMovement : MonoBehaviour
 
     public Rigidbody rb;
 
+    public GameObject knife;
+    public GameObject target;
+    public GameObject enemyBalloon;
+    public GameObject gameManager;
+
+    public GameManagerScript gameManagerScript;
+
+    public bool collidingWithBalloon;
+
     // Start is called before the first frame update
 
     private void Awake()
     {
-        gameStarted = false;
+        gameStarted = true;
         rb = GetComponent<Rigidbody>();
+        gameManagerScript = gameManager.GetComponent<GameManagerScript>();
     }
 
     void Start()
@@ -52,7 +63,7 @@ public class RoombaMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameStarted)
+        if (gameManagerScript.gameStarted)
         {
             if (Input.GetKey(upKey))
             {
@@ -70,6 +81,11 @@ public class RoombaMovement : MonoBehaviour
             else if (Input.GetKey(leftKey))
             {
                 transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
+            }
+
+            if (collidingWithBalloon)
+            {
+                Destroy(enemyBalloon);
             }
 
 
