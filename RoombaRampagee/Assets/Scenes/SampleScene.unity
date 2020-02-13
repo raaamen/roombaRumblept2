@@ -2879,18 +2879,6 @@ MonoBehaviour:
     i15: 140
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &1727886972414936862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888542248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49bf0f56ccce94948a44510390388d23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1727886972414936863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2926,6 +2914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStarted: 0
+  balloonRespawnTime: 0
   key: 0
   upKey: 119
   downKey: 115
@@ -2936,8 +2925,11 @@ MonoBehaviour:
   rotationSpeed: 150
   rb: {fileID: 0}
   gameManager: {fileID: 1196558814}
+  balloon: {fileID: 0}
   gameManagerScript: {fileID: 0}
   collidingWithBalloon: 0
+  canMove: 0
+  hasBalloon: 0
 --- !u!1001 &5621446375719586392
 PrefabInstance:
   m_ObjectHideFlags: 0
