@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class RoombaMovement : MonoBehaviour
+public class RoombaMovement : NetworkBehaviour
 {
 
     public bool gameStarted = false;
@@ -37,10 +38,12 @@ public class RoombaMovement : MonoBehaviour
 
     public Rigidbody rb;
 
-    public GameObject knife;
-    public GameObject target;
-    public GameObject enemyBalloon;
+    // public GameObject knife;
+    // public GameObject target;
+    // public GameObject enemyBalloon;
     public GameObject gameManager;
+
+    // private GameObject balloon;
 
     public GameManagerScript gameManagerScript;
 
@@ -50,19 +53,29 @@ public class RoombaMovement : MonoBehaviour
 
     private void Awake()
     {
-        gameStarted = true;
+        if (!gameManager) {
+            gameManager = GameObject.FindWithTag("GameController");
+        }
         rb = GetComponent<Rigidbody>();
         gameManagerScript = gameManager.GetComponent<GameManagerScript>();
+        
     }
 
     void Start()
     {
-        
+        if (!gameManager) {
+            gameManager = GameObject.FindWithTag("GameController");
+        }
+        rb = GetComponent<Rigidbody>();
+        gameManagerScript = gameManager.GetComponent<GameManagerScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isLocalPlayer) {
+            return;
+        }
         if (gameManagerScript.gameStarted)
         {
             if (Input.GetKey(upKey))
@@ -83,10 +96,10 @@ public class RoombaMovement : MonoBehaviour
                 transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
             }
 
-            if (collidingWithBalloon)
-            {
-                Destroy(enemyBalloon);
-            }
+            // if (collidingWithBalloon)
+            // {
+            //     Destroy(enemyBalloon);
+            // }
 
 
         }
