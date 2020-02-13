@@ -25,6 +25,7 @@ public class attackScript : MonoBehaviour
         if (collider.gameObject.tag == "Balloon")
         {
             collider.gameObject.transform.parent.gameObject.GetComponent<RoombaManager>().popBalloon();
+            Debug.Log("bb");
         }
     }
 

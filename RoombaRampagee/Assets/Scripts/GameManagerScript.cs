@@ -23,14 +23,7 @@ public class GameManagerScript : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameStarted = false;
-    }
-
-    [Command]
-    void CmdRequestBalloon(GameObject roomba) {
-        GameObject new_balloon = Instantiate(balloon,roomba.transform.position,roomba.transform.rotation);
-        new_balloon.transform.Translate(balloonOffset);
-        NetworkServer.Spawn(new_balloon);
+        gameStarted = true;
     }
 
     // Update is called once per frame
