@@ -18,10 +18,12 @@ public class GameManagerScript : NetworkBehaviour
     public GameObject balloon;
     public Vector3 balloonOffset;
 
+    public GameObject beginningimage;
+
     // Start is called before the first frame update
     void Start()
     {
-        gameStarted = true;
+        gameStarted = false;
     }
 
     [Command]
@@ -43,6 +45,13 @@ public class GameManagerScript : NetworkBehaviour
     //         }
     //     }
     // }
+
+    void startGame()
+    {
+        beginningimage.SetActive(false);
+        gameStarted = true;
+    }
+
 
 
 

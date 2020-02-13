@@ -58,6 +58,7 @@ public class RoombaMovement : NetworkBehaviour
 
     private void Awake()
     {
+        canMove = true;
         if (!gameManager)
         {
             gameManager = GameObject.FindWithTag("GameController");
@@ -122,7 +123,7 @@ public class RoombaMovement : NetworkBehaviour
     {
         balloon.SetActive(false);
         canMove = false;
-
+        StartCoroutine("respawnBalloon");
     }
 
     public IEnumerator respawnBalloon()
