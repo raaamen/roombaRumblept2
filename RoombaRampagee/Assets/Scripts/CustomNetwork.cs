@@ -7,6 +7,7 @@ public class CustomNetwork : NetworkManager
 {
     public GameManagerScript gm_script;
     public int playerCount = 0;
+    public GameObject textObj;
 
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
@@ -15,6 +16,7 @@ public class CustomNetwork : NetworkManager
         player.GetComponent<RoombaManager>().team = playerCount % 2;
         Debug.Log("Team set to " + playerCount % 2);
         playerCount++;
+        textObj.GetComponent<showText>().playersInGame = playerCount;
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
     }
 }
