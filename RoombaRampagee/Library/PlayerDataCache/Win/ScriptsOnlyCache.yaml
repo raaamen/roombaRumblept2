@@ -75,25 +75,23 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9712}
+      Script: {instanceID: 9714}
     - Class: 114
-      Script: {instanceID: 9836}
+      Script: {instanceID: 9838}
     - Class: 114
-      Script: {instanceID: 9942}
+      Script: {instanceID: 9944}
     - Class: 114
-      Script: {instanceID: 9984}
+      Script: {instanceID: 9986}
     - Class: 114
-      Script: {instanceID: 10032}
+      Script: {instanceID: 10034}
     - Class: 114
-      Script: {instanceID: 10384}
+      Script: {instanceID: 10386}
     - Class: 114
-      Script: {instanceID: 10478}
+      Script: {instanceID: 10480}
     - Class: 114
-      Script: {instanceID: 10508}
+      Script: {instanceID: 10510}
     - Class: 114
-      Script: {instanceID: 10688}
-    - Class: 114
-      Script: {instanceID: 10818}
+      Script: {instanceID: 10690}
     - Class: 114
       Script: {instanceID: 10888}
     - Class: 114
@@ -118,6 +116,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12054}
     - Class: 114
       Script: {instanceID: 12078}
+    - Class: 114
+      Script: {instanceID: 15382}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -501,12 +501,6 @@ ScriptsOnlyBuild:
     className: NetworkCallbacks
   - hash:
       serializedVersion: 2
-      Hash: c3fe4b71d8c017537fb30ab1c8b45650
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CustomNetwork
-  - hash:
-      serializedVersion: 2
       Hash: e0964be4174189cfab3e567ac951deaa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -633,7 +627,7 @@ ScriptsOnlyBuild:
     className: StinkHit
   - hash:
       serializedVersion: 2
-      Hash: 59bb3ff75a2e017914de469db6904622
+      Hash: e29937a9152b55c7b2e6169b2aebe715
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManagerScript
@@ -955,6 +949,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: c3fe4b71d8c017537fb30ab1c8b45650
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CustomNetwork
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
