@@ -24,12 +24,11 @@ public class chargingStation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        updateText();
     }
 
     public void updateText()
     {
-        Debug.Log("text updated");
         switch (team)
         {
             case 1:
