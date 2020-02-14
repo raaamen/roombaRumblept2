@@ -133,9 +133,9 @@ public class RoombaMovement : NetworkBehaviour
             if (Input.GetKeyDown(dashKey)) {
                 Dash();
             }
-            r_man.playerIndicator.GetComponent<MeshRenderer>().material = gameManagerScript.indicatorMats[0];
+            r_man.playerIndicator.GetComponent<SpriteRenderer>().color = gameManagerScript.indicatorCols[0];
         } else {
-            r_man.playerIndicator.GetComponent<MeshRenderer>().material = gameManagerScript.indicatorMats[1];
+            r_man.playerIndicator.GetComponent<SpriteRenderer>().color = gameManagerScript.indicatorCols[1];
         }
     }
 

@@ -49,6 +49,7 @@ MonoBehaviour:
   endGame: 0
   gameStarted: 0
   timer: 0
+  gameTimer: 0
   balloon: {fileID: 0}
   balloonOffset: {x: 0, y: 0, z: 0}
   beginningimage: {fileID: 0}
@@ -59,9 +60,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 0c733b1b9de96da4aa7055d9d1844ad1, type: 2}
   - {fileID: 2100000, guid: 1f274d95db322a24586f319d6e8208e2, type: 2}
   - {fileID: 2100000, guid: 29abdb512eb7e464c87ea64647bd2f38, type: 2}
-  indicatorMats:
-  - {fileID: 2100000, guid: 10782a744516e594b888d326db48f12c, type: 2}
-  - {fileID: 2100000, guid: 343ab1879e25e7f479a56a28e0f73486, type: 2}
+  indicatorCols:
+  - {r: 0.08091964, g: 0.9622642, b: 0.031772893, a: 0}
+  - {r: 0.1269233, g: 0.5283019, b: 0.07725169, a: 0}
 --- !u!114 &4204148804274918559
 MonoBehaviour:
   m_ObjectHideFlags: 0

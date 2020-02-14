@@ -28,7 +28,7 @@ public class GameManagerScript : NetworkBehaviour
     public Vector3 dustSpawn;
 
     public Material[] balloonMats;
-    public Material[] indicatorMats;
+    public Color[] indicatorCols;
     
 
     // Start is called before the first frame update
