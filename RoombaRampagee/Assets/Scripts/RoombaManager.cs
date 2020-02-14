@@ -17,6 +17,9 @@ public class RoombaManager : NetworkBehaviour
     [SyncVar]
     public bool invulnerable = false;
 
+    [SyncVar]
+    public int playerNum;
+
     public int balloonRespawnTime;
     public int invulnerabilityTime;
 

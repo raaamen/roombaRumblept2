@@ -975,8 +975,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -208.82986, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 591198526}
     characterCount: 8
@@ -1622,7 +1622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.30588236}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2124,6 +2124,7 @@ MonoBehaviour:
   gm_script: {fileID: 0}
   playerCount: 0
   textObj: {fileID: 2098299872}
+  roombas: []
 --- !u!1 &1237913679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,7 +2168,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 96fd6ce9ecebe6f4ca55150d2265b60a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.287
+  m_Volume: 0.194
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2412,8 +2413,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3613,8 +3614,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4126,8 +4127,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4366,11 +4367,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d71e8b290a3404f9a166ce7ab831c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersInGame: 0
-  player1text: {fileID: 0}
-  player2text: {fileID: 0}
-  player3text: {fileID: 0}
-  player4text: {fileID: 0}
+  player1text: {fileID: 591198524}
+  player2text: {fileID: 1588827716}
+  player3text: {fileID: 1944701779}
+  player4text: {fileID: 1254574659}
+  player1dust: 0
+  player2dust: 0
+  player3dust: 0
+  player4dust: 0
+  network: {fileID: 1196558818}
 --- !u!1001 &3096524310199594439
 PrefabInstance:
   m_ObjectHideFlags: 0
