@@ -53,7 +53,7 @@ public class GameManagerScript : NetworkBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= 3)
+        if (timer >= 2)
         {
             CmdSpawnDust();
             timer = 0;

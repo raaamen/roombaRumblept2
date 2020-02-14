@@ -153,6 +153,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
     - Class: 222
@@ -188,10 +190,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
-    - Class: 83
-      Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
     - Class: 95
@@ -209,15 +207,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9984}
     - Class: 114
-      Script: {instanceID: 10032}
-    - Class: 114
-      Script: {instanceID: 10276}
-    - Class: 114
-      Script: {instanceID: 10386}
-    - Class: 114
       Script: {instanceID: 10480}
-    - Class: 114
-      Script: {instanceID: 10690}
     - Class: 114
       Script: {instanceID: 10764}
     - Class: 114
@@ -225,19 +215,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11280}
     - Class: 114
-      Script: {instanceID: 11446}
-    - Class: 114
       Script: {instanceID: 11524}
     - Class: 114
       Script: {instanceID: 11606}
     - Class: 114
-      Script: {instanceID: 11878}
-    - Class: 114
       Script: {instanceID: 11936}
     - Class: 114
       Script: {instanceID: 12066}
-    - Class: 114
-      Script: {instanceID: 12090}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -783,7 +767,7 @@ ScriptsOnlyBuild:
     className: StinkHit
   - hash:
       serializedVersion: 2
-      Hash: 68229929bb7b14e5821b0b1c1f87bd6a
+      Hash: 77c3488bc448df5d3ca43dae0398495a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManagerScript
