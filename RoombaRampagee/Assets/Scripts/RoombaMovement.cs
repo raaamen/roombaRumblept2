@@ -124,4 +124,29 @@ public class RoombaMovement : NetworkBehaviour
 
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Charger")
+        {
+            Debug.Log("hit charger");
+            if (GetComponent<RoombaManager>().dust_collected > 0)
+            {
+                other.gameObject.GetComponent<chargingStation>().updateText(GetComponent<RoombaManager>().dust_collected);
+                GetComponent<RoombaManager>().dust_collected = 0;
+            }
+        }
+        if (other.gameObject.tag == "Dust")
+        {
+            Debug.Log("dust collected");
+            GetComponent<RoombaManager>().dust_collected++;
+            Destroy(other.gameObject);
+        }
+    }
 }

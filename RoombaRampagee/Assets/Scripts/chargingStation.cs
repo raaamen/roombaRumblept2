@@ -24,8 +24,9 @@ public class chargingStation : MonoBehaviour
         
     }
 
-    void updateText(int num)
+    public void updateText(int num)
     {
+        Debug.Log("text updated");
         switch (team)
         {
             case 1:
@@ -38,12 +39,5 @@ public class chargingStation : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Roomba")
-        {
-            updateText(collision.gameObject.GetComponent<RoombaManager>().dust_collected);
-        }
     
-    }
 }
