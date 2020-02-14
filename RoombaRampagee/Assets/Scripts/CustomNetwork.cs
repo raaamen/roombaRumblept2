@@ -19,4 +19,12 @@ public class CustomNetwork : NetworkManager
         textObj.GetComponent<showText>().playersInGame = playerCount;
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
     }
+    public virtual void OnServerRemovePlayer(NetworkConnection conn, NetworkIdentity player)
+    {
+        if (player.gameObject != null)
+        {
+            NetworkServer.Destroy(player.gameObject);
+        }
+        playerCount--;
+    }
 }

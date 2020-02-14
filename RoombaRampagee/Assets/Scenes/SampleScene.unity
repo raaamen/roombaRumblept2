@@ -2007,8 +2007,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb384e901a9bbb49b8f2d51b3b5db88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1score: 0
-  player2score: 0
+  team0score: 0
+  team1score: 0
   endGame: 0
   gameStarted: 1
   timer: 0
@@ -2123,6 +2123,7 @@ MonoBehaviour:
   matchMaker: {fileID: 0}
   gm_script: {fileID: 0}
   playerCount: 0
+  textObj: {fileID: 2098299872}
 --- !u!1 &1237913679
 GameObject:
   m_ObjectHideFlags: 0
@@ -4274,6 +4275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d71e8b290a3404f9a166ce7ab831c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersInGame: 0
 --- !u!1001 &3096524310199594439
 PrefabInstance:
   m_ObjectHideFlags: 0
