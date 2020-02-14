@@ -200,7 +200,13 @@ MonoBehaviour:
   downKey: 115
   rightKey: 100
   leftKey: 97
-  attackKey: 0
+  dashKey: 32
+  dust_per_dash: 3
+  dash_cooldown: 5
+  dash_ready: 0
+  dash_cd_active: 0
+  dash_force: 1500
+  dash_control_freeze_time: 0.8
   moveSpeed: 30
   rotationSpeed: 200
   rb: {fileID: 0}

@@ -25,6 +25,10 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    com.unity.multiplayer-hlapi.Editor.dll:
+    - UnityEditor.NetworkBehaviourInspector
+    - UnityEditor.NetworkIdentityEditor
+    - UnityEditor.NetworkTransformEditor
     com.unity.multiplayer-hlapi.Runtime.dll:
     - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
@@ -456,7 +460,7 @@ ScriptsOnlyBuild:
     className: LightningAttack
   - hash:
       serializedVersion: 2
-      Hash: f2c6c6a8a49f462c04b2158ec7a331b3
+      Hash: edf13e9ed0c840d224b8d0f955449a36
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RoombaMovement
@@ -642,7 +646,7 @@ ScriptsOnlyBuild:
     className: StinkHit
   - hash:
       serializedVersion: 2
-      Hash: 7f666312795497240b07c4aa4b2467c4
+      Hash: 8a9f8425a6cc0519b09716b203b8bdff
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManagerScript

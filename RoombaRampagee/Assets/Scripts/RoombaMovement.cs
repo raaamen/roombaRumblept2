@@ -32,7 +32,13 @@ public class RoombaMovement : NetworkBehaviour
     public KeyCode downKey;
     public KeyCode rightKey;
     public KeyCode leftKey;
-    public KeyCode attackKey;
+    public KeyCode dashKey;
+    public int dust_per_dash;
+    public float dash_cooldown;
+    public bool dash_ready = false;
+    public bool dash_cd_active = false;
+    public float dash_force;
+    public float dash_control_freeze_time;
 
 
     public float moveSpeed;
@@ -59,6 +65,7 @@ public class RoombaMovement : NetworkBehaviour
 
     public float slowDownPerDust;
     public float angularSlowDownPerDust;
+    private bool currently_dashing;
 
     // Start is called before the first frame update
 
@@ -90,7 +97,7 @@ public class RoombaMovement : NetworkBehaviour
         {
             return;
         }
-        if (r_man.alive)
+        if (r_man.alive && !currently_dashing)
         {
             if (Input.GetKey(upKey))
             {
@@ -128,15 +135,53 @@ public class RoombaMovement : NetworkBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void Update () {
+        if (!isLocalPlayer) {
+            return;
+        }
+        dash_ready = r_man.dust_collected >= dust_per_dash && !dash_cd_active;
+        if (dash_ready) {
+            if (Input.GetKeyDown(dashKey)) {
+                Dash();
+            }
+            r_man.playerIndicator.GetComponent<MeshRenderer>().material = gameManagerScript.indicatorMats[0];
+        } else {
+            r_man.playerIndicator.GetComponent<MeshRenderer>().material = gameManagerScript.indicatorMats[1];
+        }
+    }
+
+    private void Dash () {
+        rb.velocity = Vector3.zero;
+        r_man.CmdChangeDustCount(r_man.dust_collected-dust_per_dash);
+        dash_cd_active = true;
+        currently_dashing = true;
+        rb.AddForce(transform.forward * -dash_force);
+        StartCoroutine("DashControlFreeze");
+        StartCoroutine("DashCooldown");
+    }
+
+    public IEnumerator DashControlFreeze()
     {
-        
-        
+        if (!currently_dashing)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(dash_control_freeze_time);
+        currently_dashing = false;
+    }
+
+    public IEnumerator DashCooldown()
+    {
+        if (!dash_cd_active)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(dash_cooldown);
+        dash_cd_active = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(isLocalPlayer);
         if (!isLocalPlayer || !r_man.alive) {
             return;
         }
