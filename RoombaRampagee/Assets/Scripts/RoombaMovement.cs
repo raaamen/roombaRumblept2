@@ -122,7 +122,7 @@ public class RoombaMovement : NetworkBehaviour
             //     Destroy(enemyBalloon);
             // }
 
-
+            transform.eulerAngles = new Vector3(0,transform.eulerAngles.y,0);
         }
     }
 
@@ -150,7 +150,6 @@ public class RoombaMovement : NetworkBehaviour
                         gameManagerScript.team1score += r_man.dust_collected;
                         break;
                 }
-                other.gameObject.GetComponent<chargingStation>().updateText();
                 r_man.dust_collected = 0;
             }
         }

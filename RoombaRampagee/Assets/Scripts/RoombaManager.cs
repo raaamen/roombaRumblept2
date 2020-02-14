@@ -28,6 +28,8 @@ public class RoombaManager : NetworkBehaviour
     public GameObject knife;
     public GameObject balloon;
 
+    public GameObject dustText;
+
     
 
     public GameManagerScript gm_script;
@@ -41,6 +43,8 @@ public class RoombaManager : NetworkBehaviour
         }
         gm_script = GameObject.FindWithTag("GameController").GetComponent<GameManagerScript>();
         ChangeBalloon(alive, team * 2);
+        GameObject dt = Instantiate(dustText,transform.position+new Vector3(3,0,0),Quaternion.Euler(90,180,90));
+        dt.GetComponent<roombaText>().rm = this;
     }
 
     // Update is called once per frame
