@@ -1904,7 +1904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStarted: 0
-  gameTimer: 0
+  gameTimer: 120
   teamWinText: {fileID: 248771543}
   restartingText: {fileID: 730030685}
   gameOverText: {fileID: 1835822613}

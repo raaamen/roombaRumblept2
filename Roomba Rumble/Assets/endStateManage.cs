@@ -47,13 +47,15 @@ public class endStateManage : MonoBehaviour
 
     void Update()
     {
-        countdown.GetComponent<TMP_Text>().text = "Remaining game time: " + gameTimer + " seconds";
+        countdown.GetComponent<TMP_Text>().text = "Remaining game time: " + (int)gameTimer + " seconds";
         if (Input.GetKeyDown(KeyCode.H))
         {
             gameTimer = 1;
         }
-        gameTimer -= Time.deltaTime;
-        if (gameTimer <=0)
+        if (gameStarted) {
+            gameTimer -= Time.deltaTime;
+        }
+        if (gameTimer <=0 && gameStarted)
         {
             gameStarted = false;
             gameOverText.SetActive(true);
@@ -86,14 +88,15 @@ public class endStateManage : MonoBehaviour
     public IEnumerator countDownText()
     {
         restartingText.SetActive(true);
-        restartingText.GetComponent<TMP_Text>().text = "Game restarting in "+count+"...";
+        restartingText.GetComponent<TMP_Text>().text = "Game ending in "+count+"...";
         yield return new WaitForSeconds(1);
         count--;
-        restartingText.GetComponent<TMP_Text>().text = "Game restarting in " + count + "...";
+        restartingText.GetComponent<TMP_Text>().text = "Game ending in " + count + "...";
         yield return new WaitForSeconds(1);
         count--;
-        restartingText.GetComponent<TMP_Text>().text = "Game restarting in " + count + "...";
+        restartingText.GetComponent<TMP_Text>().text = "Game ending in " + count + "...";
         yield return new WaitForSeconds(1);
+        Application.Quit();
         //insert scene reload here
     }
 }
