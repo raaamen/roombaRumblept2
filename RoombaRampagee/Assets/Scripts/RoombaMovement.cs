@@ -45,7 +45,7 @@ public class RoombaMovement : NetworkBehaviour
     // public GameObject enemyBalloon;
     public GameObject gameManager;
     public GameObject balloon;
-    public showText showTextObj;
+    public GameObject textobj;
 
     // private GameObject balloon;
 
@@ -79,7 +79,6 @@ public class RoombaMovement : NetworkBehaviour
         }
         rb = GetComponent<Rigidbody>();
         gameManagerScript = gameManager.GetComponent<GameManagerScript>();
-        showTextObj = GameObject.Find("PlayerText").GetComponent<showText>();
     }
 
     void FixedUpdate()
@@ -159,7 +158,6 @@ public class RoombaMovement : NetworkBehaviour
         {
             Debug.Log("dust collected");
             r_man.dust_collected++;
-            showTextObj.updateTextNum();
             Destroy(other.gameObject);
         }
     }

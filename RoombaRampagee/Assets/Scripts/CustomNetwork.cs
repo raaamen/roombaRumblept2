@@ -19,7 +19,7 @@ public class CustomNetwork : NetworkManager
         Debug.Log("Team set to " + playerCount % 2);
         playerCount++;
         player.GetComponent<RoombaManager>().playerNum = playerCount;
-        textObj.GetComponent<showText>().updateTextBoxes(playerCount);
+
         roombas.Add(player);
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
     }
@@ -31,6 +31,6 @@ public class CustomNetwork : NetworkManager
             roombas.Remove(player.gameObject);
         }
         playerCount--;
-        textObj.GetComponent<showText>().updateTextBoxes(playerCount);
+
     }
 }
