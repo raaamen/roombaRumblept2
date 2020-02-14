@@ -12,7 +12,7 @@ public class GameManagerScript : NetworkBehaviour
     public int team1score;
 
     public bool endGame;
-    public bool gameStarted;
+    public bool gameStarted = false;
 
     public float timer = 0;
 
@@ -29,7 +29,7 @@ public class GameManagerScript : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameStarted = false;
+
     }
 
     // Update is called once per frame
