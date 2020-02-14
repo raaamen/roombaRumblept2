@@ -20,6 +20,9 @@ public class RoombaManager : NetworkBehaviour
     [SyncVar]
     public int playerNum;
 
+    [SyncVar]
+    public string playerName;
+
     public int balloonRespawnTime;
     public int invulnerabilityTime;
 
@@ -29,6 +32,7 @@ public class RoombaManager : NetworkBehaviour
     public GameObject balloon;
 
     public GameObject dustText;
+    public GameObject nameText;
 
     
 
@@ -45,6 +49,8 @@ public class RoombaManager : NetworkBehaviour
         ChangeBalloon(alive, team * 2);
         dustText = Instantiate(dustText,transform.position+new Vector3(3,0,0),Quaternion.Euler(90,180,90));
         dustText.GetComponent<roombaText>().rm = this;
+        nameText = Instantiate(nameText,transform.position+new Vector3(-4,0,0),Quaternion.Euler(90,180,90));
+        nameText.GetComponent<roombaNameText>().rm = this;
     }
 
     // Update is called once per frame
@@ -56,15 +62,16 @@ public class RoombaManager : NetworkBehaviour
     [Command]
     public void CmdPopBalloon()
     {
-        if (invulnerable || !alive)
+        if (invulnerable)
         {
             return;
         }
         balloon.SetActive(false);
         alive = false;
+        invulnerable = true;
         RpcChangeBalloon(false, -1);
         gm_script.CmdDropDust((int)(dust_collected*0.5),balloon.transform.position,transform.forward,transform.right);
-        CmdChangeDustCount((int)(0.25*dust_collected));
+        CmdSetDustCount((int)(0.25*dust_collected));
         StartCoroutine("RespawnBalloon");
     }
 
@@ -117,7 +124,12 @@ public class RoombaManager : NetworkBehaviour
     }
 
     [Command]
-    public void CmdChangeDustCount(int new_amount) {
+    public void CmdChangeDustCount(int delta_amount) {
+        dust_collected += delta_amount;
+    }
+
+    [Command]
+    public void CmdSetDustCount(int new_amount) {
         dust_collected = new_amount;
     }
 

@@ -69,26 +69,13 @@ public class RoombaMovement : NetworkBehaviour
 
     // Start is called before the first frame update
 
-    private void Awake()
-    {
-        if (!gameManager)
-        {
-            gameManager = GameObject.FindWithTag("GameController");
-        }
-        rb = GetComponent<Rigidbody>();
-        gameManagerScript = gameManager.GetComponent<GameManagerScript>();
-        r_man = GetComponent<RoombaManager>();
-        audiosource = GetComponent<AudioSource>();
-    }
-
     void Start()
     {
-        if (!gameManager)
-        {
-            gameManager = GameObject.FindWithTag("GameController");
-        }
+        gameManagerScript = GameObject.FindObjectOfType<GameManagerScript>();
+        gameManager = gameManagerScript.gameObject;
         rb = GetComponent<Rigidbody>();
-        gameManagerScript = gameManager.GetComponent<GameManagerScript>();
+        r_man = GetComponent<RoombaManager>();
+        audiosource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -99,15 +86,17 @@ public class RoombaMovement : NetworkBehaviour
         }
         if (r_man.alive && !currently_dashing)
         {
+            float moveSlow = Mathf.Clamp(slowDownPerDust*r_man.dust_collected,0,moveSpeed*0.5f);
+            float rotSlow = Mathf.Clamp(angularSlowDownPerDust*r_man.dust_collected,0,rotationSpeed*0.75f);
             if (Input.GetKey(upKey))
             {
                 audiosource.Play();
-                rb.AddForce(transform.forward * -(moveSpeed-slowDownPerDust*r_man.dust_collected));
+                rb.AddForce(transform.forward * -(moveSpeed-moveSlow));
             }
             else if (Input.GetKey(downKey))
             {
                 audiosource.Play();
-                rb.AddForce(transform.forward * (moveSpeed-slowDownPerDust*r_man.dust_collected));
+                rb.AddForce(transform.forward * (moveSpeed-moveSlow));
             }
             else if (Input.GetKey(rightKey))
             {
@@ -116,7 +105,7 @@ public class RoombaMovement : NetworkBehaviour
                     audiosource.Stop();
                 }
                 //changing y rotation
-                transform.Rotate(0, (rotationSpeed-angularSlowDownPerDust*r_man.dust_collected) * Time.deltaTime, 0);
+                transform.Rotate(0, (rotationSpeed-rotSlow) * Time.deltaTime, 0);
             }
             else if (Input.GetKey(leftKey))
             {
@@ -124,7 +113,7 @@ public class RoombaMovement : NetworkBehaviour
                 {
                     audiosource.Stop();
                 }
-                transform.Rotate(0, -(rotationSpeed-angularSlowDownPerDust*r_man.dust_collected) * Time.deltaTime, 0);
+                transform.Rotate(0, -(rotationSpeed-rotSlow) * Time.deltaTime, 0);
             } else {
                 if (audiosource.isPlaying)
                 {
@@ -152,7 +141,7 @@ public class RoombaMovement : NetworkBehaviour
 
     private void Dash () {
         rb.velocity = Vector3.zero;
-        r_man.CmdChangeDustCount(r_man.dust_collected-dust_per_dash);
+        r_man.CmdChangeDustCount(-dust_per_dash);
         dash_cd_active = true;
         currently_dashing = true;
         rb.AddForce(transform.forward * -dash_force);
@@ -194,13 +183,13 @@ public class RoombaMovement : NetworkBehaviour
                 r_man.dust_collected = 0;
                 CmdDepositDust(other.gameObject.GetComponent<chargingStation>().team,
                     dust_transfer);
-                r_man.CmdChangeDustCount(0);
+                r_man.CmdSetDustCount(0);
             }
         }
         if (other.gameObject.tag == "Dust")
         {
             Debug.Log("dust collected");
-            r_man.CmdChangeDustCount(r_man.dust_collected+1);
+            r_man.CmdChangeDustCount(1);
             r_man.CmdDestroyObject(other.gameObject);
             Destroy(other.gameObject);
         }

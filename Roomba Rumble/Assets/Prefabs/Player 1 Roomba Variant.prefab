@@ -44,7 +44,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.06
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -237,12 +237,15 @@ MonoBehaviour:
   dust_collected: 0
   invulnerable: 0
   playerNum: 0
+  playerName: Target Dummy
   balloonRespawnTime: 5
   invulnerabilityTime: 1
   playerIndicator: {fileID: 3399697672092036720}
   knife: {fileID: 7267504806794810050}
   balloon: {fileID: 7267504806180160452}
   dustText: {fileID: 7340464159406194328, guid: e0b109ef7f0ab554899019b7df772883,
+    type: 3}
+  nameText: {fileID: 7340464159406194328, guid: 1c134ac8d9fa53c4b88ca6ff6cd456ca,
     type: 3}
   gm_script: {fileID: 0}
 --- !u!54 &7951583165549868858

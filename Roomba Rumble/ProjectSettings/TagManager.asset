@@ -8,6 +8,9 @@ TagManager:
   - Dust
   - Charger
   - Roomba
+  - PlayerNameInput
+  - PreJoin
+  - PostJoin
   layers:
   - Default
   - TransparentFX
