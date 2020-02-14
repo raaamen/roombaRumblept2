@@ -21,6 +21,8 @@ public class CustomNetwork : NetworkManager
         player.GetComponent<RoombaManager>().playerNum = playerCount;
 
         roombas.Add(player);
+        gm_script = GetComponent<GameManagerScript>();
+        gm_script.gameStarted = true;
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
     }
     public virtual void OnServerRemovePlayer(NetworkConnection conn, NetworkIdentity player)
