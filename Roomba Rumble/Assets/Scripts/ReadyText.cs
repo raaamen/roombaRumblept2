@@ -16,6 +16,13 @@ public class ReadyText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<TMP_Text>().text = "Players in lobby: "+ nm.numPlayers;
+        switch (nm.numPlayers) {
+            case 0:
+            GetComponent<TMP_Text>().text = "Waiting for other players...";
+            break;
+            default:
+            GetComponent<TMP_Text>().text = "Players in lobby: "+ nm.numPlayers;
+            break;
+        }
     }
 }

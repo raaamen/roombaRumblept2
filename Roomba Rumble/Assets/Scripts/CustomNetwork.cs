@@ -51,7 +51,6 @@ public class CustomNetwork : NetworkLobbyManager
         StartMatchMaker();
         matchMaker.ListMatches(0,20,"",false,0,1,OnMatchList);
         Debug.Log("Searching");
-        playerCountText.GetComponent<ReadyText>().nm = this;
         playerCountText.active = true;
         readyButton.active = true;
     }
@@ -69,7 +68,7 @@ public class CustomNetwork : NetworkLobbyManager
             {
                 Debug.Log("No Matches Found");
                 Debug.Log("Creating Match");
-                matchMaker.CreateMatch("Default Match", 2, true, "", "", "", 0, 1, OnMatchCreate);
+                matchMaker.CreateMatch("Default Match", 4, true, "", "", "", 0, 1, OnMatchCreate);
             }
         }
         else
