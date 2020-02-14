@@ -12,10 +12,13 @@ public class chargingStation : MonoBehaviour
     public int team;
     //1 is blue 0 is red
 
+    GameManagerScript gm_script;
+
     // Start is called before the first frame update
     void Start()
     {
-        updateText(0);
+        gm_script = GameObject.FindWithTag("GameController").GetComponent<GameManagerScript>();
+        updateText();
     }
 
     // Update is called once per frame
@@ -24,16 +27,16 @@ public class chargingStation : MonoBehaviour
         
     }
 
-    public void updateText(int num)
+    public void updateText()
     {
         Debug.Log("text updated");
         switch (team)
         {
             case 1:
-                text.GetComponent<TMP_Text>().text = "Blue Team Score: " + num;
+                text.GetComponent<TMP_Text>().text = "Blue Team Score: " + gm_script.team1score;
                 break;
             case 0:
-                text.GetComponent<TMP_Text>().text = "Red Team Score: " + num;
+                text.GetComponent<TMP_Text>().text = "Red Team Score: " + gm_script.team0score;
                 break;
         }
         

@@ -6,9 +6,10 @@ using UnityEngine.Networking;
 
 public class GameManagerScript : NetworkBehaviour
 {
-
-    public int player1score;
-    public int player2score;
+    [SyncVar]
+    public int team0score;
+    [SyncVar]
+    public int team1score;
 
     public bool endGame;
     public bool gameStarted;
