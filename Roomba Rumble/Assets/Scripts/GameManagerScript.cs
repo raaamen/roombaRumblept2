@@ -17,6 +17,7 @@ public class GameManagerScript : NetworkBehaviour
     public bool gameStarted;
 
     public float timer = 0;
+    public float gameTimer = 0;
 
     public GameObject balloon;
     public Vector3 balloonOffset;
@@ -92,4 +93,7 @@ public class GameManagerScript : NetworkBehaviour
             NetworkServer.Spawn(new_dust);
         }
     }
+
+
+
 }

@@ -12,6 +12,7 @@ ScriptsOnlyBuild:
     - UniHumanoid.HumanPoseClip
     - attackScript
     - chargingStation
+    - endStateManage
     - roombaNameText
     - roombaText
     Unity.TextMeshPro.dll:
@@ -23,7 +24,6 @@ ScriptsOnlyBuild:
     - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -34,7 +34,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.InputField
     - UnityEngine.UI.Text
     com.unity.multiplayer-hlapi.Runtime.dll:
-    - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
     - UnityEngine.Networking.NetworkLobbyPlayer
     - UnityEngine.Networking.NetworkManagerHUD
@@ -107,45 +106,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10690}
     - Class: 114
-      Script: {instanceID: 10778}
+      Script: {instanceID: 10780}
     - Class: 114
-      Script: {instanceID: 10822}
+      Script: {instanceID: 10824}
     - Class: 114
-      Script: {instanceID: 10892}
+      Script: {instanceID: 10894}
     - Class: 114
-      Script: {instanceID: 11006}
+      Script: {instanceID: 11008}
     - Class: 114
-      Script: {instanceID: 11052}
+      Script: {instanceID: 11054}
     - Class: 114
-      Script: {instanceID: 11114}
+      Script: {instanceID: 11116}
     - Class: 114
-      Script: {instanceID: 11134}
+      Script: {instanceID: 11136}
     - Class: 114
-      Script: {instanceID: 11216}
+      Script: {instanceID: 11218}
     - Class: 114
-      Script: {instanceID: 11242}
+      Script: {instanceID: 11244}
     - Class: 114
-      Script: {instanceID: 11278}
+      Script: {instanceID: 11280}
     - Class: 114
-      Script: {instanceID: 11296}
+      Script: {instanceID: 11298}
     - Class: 114
-      Script: {instanceID: 11444}
+      Script: {instanceID: 11446}
     - Class: 114
-      Script: {instanceID: 11522}
+      Script: {instanceID: 11524}
     - Class: 114
-      Script: {instanceID: 11604}
+      Script: {instanceID: 11606}
     - Class: 114
-      Script: {instanceID: 11804}
+      Script: {instanceID: 11806}
     - Class: 114
-      Script: {instanceID: 11876}
+      Script: {instanceID: 11878}
     - Class: 114
-      Script: {instanceID: 11934}
+      Script: {instanceID: 11936}
     - Class: 114
-      Script: {instanceID: 12000}
+      Script: {instanceID: 12002}
     - Class: 114
-      Script: {instanceID: 12064}
+      Script: {instanceID: 12066}
     - Class: 114
-      Script: {instanceID: 12088}
+      Script: {instanceID: 12090}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -218,21 +217,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10690}
     - Class: 114
-      Script: {instanceID: 11134}
+      Script: {instanceID: 10764}
     - Class: 114
-      Script: {instanceID: 11278}
+      Script: {instanceID: 11136}
     - Class: 114
-      Script: {instanceID: 11444}
+      Script: {instanceID: 11280}
     - Class: 114
-      Script: {instanceID: 11604}
+      Script: {instanceID: 11446}
     - Class: 114
-      Script: {instanceID: 11876}
+      Script: {instanceID: 11524}
     - Class: 114
-      Script: {instanceID: 11934}
+      Script: {instanceID: 11606}
     - Class: 114
-      Script: {instanceID: 12064}
+      Script: {instanceID: 11878}
     - Class: 114
-      Script: {instanceID: 12088}
+      Script: {instanceID: 11936}
+    - Class: 114
+      Script: {instanceID: 12066}
+    - Class: 114
+      Script: {instanceID: 12090}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -592,6 +595,12 @@ ScriptsOnlyBuild:
     className: SlimeProjectile
   - hash:
       serializedVersion: 2
+      Hash: f652ad41223bb4834c6ac8ca6b8b5ca3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: endStateManage
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -772,7 +781,7 @@ ScriptsOnlyBuild:
     className: StinkHit
   - hash:
       serializedVersion: 2
-      Hash: 8a9f8425a6cc0519b09716b203b8bdff
+      Hash: 68229929bb7b14e5821b0b1c1f87bd6a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManagerScript
@@ -1104,4 +1113,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Lobby.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/ryan-/Dropbox/hahahahackbca/RoombaRampagee.exe
+  playerPath: C:/Users/Sarapptop/Dropbox/hahahahackbca/RoombaRampagee.exe
