@@ -9,6 +9,8 @@ public class CustomNetwork : NetworkManager
     public int playerCount = 0;
     public GameObject textObj;
 
+    public List<GameObject> roombas;
+
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
         Transform startpos = GetStartPosition();
@@ -17,6 +19,7 @@ public class CustomNetwork : NetworkManager
         Debug.Log("Team set to " + playerCount % 2);
         playerCount++;
         textObj.GetComponent<showText>().playersInGame = playerCount;
+        roombas.Add(player);
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
     }
     public virtual void OnServerRemovePlayer(NetworkConnection conn, NetworkIdentity player)
@@ -24,6 +27,7 @@ public class CustomNetwork : NetworkManager
         if (player.gameObject != null)
         {
             NetworkServer.Destroy(player.gameObject);
+            roombas.Remove(player.gameObject);
         }
         playerCount--;
     }
