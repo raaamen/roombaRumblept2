@@ -10,15 +10,20 @@ public class endStateManage : MonoBehaviour
 
     public bool gameStarted;
 
-    public float gameTimer = 0;
+
+    public float gameTimer = 180;
 
     public GameObject teamWinText;
     public GameObject restartingText;
     public GameObject gameOverText;
+    public GameObject countdown;
 
     public GameManagerScript gm;
+    public CustomNetwork nm;
 
     public string winningTeam;
+
+    public int count = 3;
 
 
 
@@ -30,6 +35,7 @@ public class endStateManage : MonoBehaviour
         restartingText.SetActive(false);
         gameOverText.SetActive(false);
         gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+        nm = GameObject.Find("NetworkManager").GetComponent<CustomNetwork>();
     }
 
     void Start()
@@ -38,10 +44,16 @@ public class endStateManage : MonoBehaviour
     }
 
     // Update is called once per frame
+
     void Update()
     {
-        gameTimer += Time.deltaTime;
-        if (gameTimer >=180)
+        countdown.GetComponent<TMP_Text>().text = "Remaining game time: " + gameTimer + " seconds";
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            gameTimer = 1;
+        }
+        gameTimer -= Time.deltaTime;
+        if (gameTimer <=0)
         {
             gameStarted = false;
             gameOverText.SetActive(true);
@@ -57,6 +69,13 @@ public class endStateManage : MonoBehaviour
             {
                 winningTeam = "No";
             }
+
+            foreach (var item in nm.roombas)
+            {
+                item.GetComponent<RoombaManager>().alive = false;
+                item.GetComponent<RoombaManager>().balloonRespawnTime = 10000000;
+            }
+
             teamWinText.GetComponent<TMP_Text>().text = winningTeam+" Team has won!";
             teamWinText.SetActive(true);
             StartCoroutine("countDownText");
@@ -67,7 +86,6 @@ public class endStateManage : MonoBehaviour
     public IEnumerator countDownText()
     {
         restartingText.SetActive(true);
-        int count = 3;
         restartingText.GetComponent<TMP_Text>().text = "Game restarting in "+count+"...";
         yield return new WaitForSeconds(1);
         count--;
@@ -76,6 +94,6 @@ public class endStateManage : MonoBehaviour
         count--;
         restartingText.GetComponent<TMP_Text>().text = "Game restarting in " + count + "...";
         yield return new WaitForSeconds(1);
-        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+        //insert scene reload here
     }
 }
