@@ -29,7 +29,7 @@ public class GameManagerScript : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameStarted = true;
+        gameStarted = false;
     }
 
     // Update is called once per frame
@@ -67,13 +67,16 @@ public class GameManagerScript : NetworkBehaviour
         //y coord = 0.2761
         //z coord upper = -5.3
         //z coord lower = -92
-
-        dustSpawn = new Vector3(Random.Range(-4, -45), 0.2761f, Random.Range(-5, -92));
-        int mask = ~(LayerMask.GetMask("Floor"));
-        Collider[] intersects = Physics.OverlapBox(dustSpawn,new Vector3(1.5f,0.25f,1.5f),Quaternion.identity,mask,
-            QueryTriggerInteraction.Collide);
-        if (intersects.Length > 0) return;
-        GameObject new_dust = Instantiate(dust, dustSpawn, Quaternion.identity);
+        if (gameStarted)
+        {
+            dustSpawn = new Vector3(Random.Range(-4, -45), 0.2761f, Random.Range(-5, -92));
+            int mask = ~(LayerMask.GetMask("Floor"));
+            Collider[] intersects = Physics.OverlapBox(dustSpawn, new Vector3(1.5f, 0.25f, 1.5f), Quaternion.identity, mask,
+                QueryTriggerInteraction.Collide);
+            if (intersects.Length > 0) return;
+            GameObject new_dust = Instantiate(dust, dustSpawn, Quaternion.identity);
+        }
+        
 
     }
 

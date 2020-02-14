@@ -1469,6 +1469,11 @@ PrefabInstance:
       propertyPath: team
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2822329259220600311, guid: 6ab8d143029de424a85457ce5ff94a6f,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ab8d143029de424a85457ce5ff94a6f, type: 3}
 --- !u!1 &857256415
@@ -4298,15 +4303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d71e8b290a3404f9a166ce7ab831c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1text: {fileID: 591198524}
-  player2text: {fileID: 1588827716}
-  player3text: {fileID: 1944701779}
-  player4text: {fileID: 1254574659}
-  player1dust: 0
-  player2dust: 0
-  player3dust: 0
-  player4dust: 0
-  network: {fileID: 1196558818}
 --- !u!1001 &3096524310199594439
 PrefabInstance:
   m_ObjectHideFlags: 0
