@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class attackScript : MonoBehaviour
 {
-
+    public GameObject own_balloon;
     
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class attackScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.tag == "Balloon")
+        if (collider.gameObject.tag == "Balloon" && collider.gameObject != own_balloon)
         {
             collider.gameObject.transform.parent.gameObject.GetComponent<RoombaManager>().CmdPopBalloon();
         }

@@ -19,6 +19,9 @@ public class roombaText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!rm) {
+            Destroy(this.gameObject);
+        }
         transform.rotation = startrotation;
         transform.position = rm.transform.position+offset;
         GetComponent<TMP_Text>().text = "Dust Collected: " + rm.dust_collected;

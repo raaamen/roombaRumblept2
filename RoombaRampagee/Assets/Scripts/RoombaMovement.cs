@@ -57,6 +57,9 @@ public class RoombaMovement : NetworkBehaviour
 
     public AudioSource audiosource;
 
+    public float slowDownPerDust;
+    public float angularSlowDownPerDust;
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -87,17 +90,17 @@ public class RoombaMovement : NetworkBehaviour
         {
             return;
         }
-        if (gameManagerScript.gameStarted && r_man.alive)
+        if (r_man.alive)
         {
             if (Input.GetKey(upKey))
             {
                 audiosource.Play();
-                rb.AddForce(transform.forward * -moveSpeed);
+                rb.AddForce(transform.forward * -(moveSpeed-slowDownPerDust*r_man.dust_collected));
             }
             else if (Input.GetKey(downKey))
             {
                 audiosource.Play();
-                rb.AddForce(transform.forward * moveSpeed);
+                rb.AddForce(transform.forward * (moveSpeed-slowDownPerDust*r_man.dust_collected));
             }
             else if (Input.GetKey(rightKey))
             {
@@ -106,7 +109,7 @@ public class RoombaMovement : NetworkBehaviour
                     audiosource.Stop();
                 }
                 //changing y rotation
-                transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
+                transform.Rotate(0, (rotationSpeed-angularSlowDownPerDust*r_man.dust_collected) * Time.deltaTime, 0);
             }
             else if (Input.GetKey(leftKey))
             {
@@ -114,14 +117,13 @@ public class RoombaMovement : NetworkBehaviour
                 {
                     audiosource.Stop();
                 }
-                transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
+                transform.Rotate(0, -(rotationSpeed-angularSlowDownPerDust*r_man.dust_collected) * Time.deltaTime, 0);
+            } else {
+                if (audiosource.isPlaying)
+                {
+                    audiosource.Stop();
+                }
             }
-
-            // if (collidingWithBalloon)
-            // {
-            //     Destroy(enemyBalloon);
-            // }
-
             transform.eulerAngles = new Vector3(0,transform.eulerAngles.y,0);
         }
     }
@@ -134,7 +136,8 @@ public class RoombaMovement : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!isLocalPlayer) {
+        Debug.Log(isLocalPlayer);
+        if (!isLocalPlayer || !r_man.alive) {
             return;
         }
         if (other.gameObject.tag == "Charger")
@@ -142,24 +145,32 @@ public class RoombaMovement : NetworkBehaviour
             Debug.Log("hit charger");
             if (r_man.dust_collected > 0)
             {
-                switch(other.gameObject.GetComponent<chargingStation>().team) {
-                    case 0:
-                        gameManagerScript.team0score += r_man.dust_collected;
-                        break;
-                    case 1:
-                        gameManagerScript.team1score += r_man.dust_collected;
-                        break;
-                }
+                int dust_transfer = r_man.dust_collected;
                 r_man.dust_collected = 0;
+                CmdDepositDust(other.gameObject.GetComponent<chargingStation>().team,
+                    dust_transfer);
+                r_man.CmdChangeDustCount(0);
             }
         }
         if (other.gameObject.tag == "Dust")
         {
             Debug.Log("dust collected");
-            r_man.dust_collected++;
+            r_man.CmdChangeDustCount(r_man.dust_collected+1);
+            r_man.CmdDestroyObject(other.gameObject);
             Destroy(other.gameObject);
         }
     }
 
-
+    
+    [Command]
+    public void CmdDepositDust(int team,int amount) {
+        switch (team) {
+            case 0:
+                gameManagerScript.team0score += amount;
+                break;
+            case 1:
+                gameManagerScript.team1score += amount;
+                break;
+        }
+    }
 }

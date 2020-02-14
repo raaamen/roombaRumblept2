@@ -43,8 +43,8 @@ public class RoombaManager : NetworkBehaviour
         }
         gm_script = GameObject.FindWithTag("GameController").GetComponent<GameManagerScript>();
         ChangeBalloon(alive, team * 2);
-        GameObject dt = Instantiate(dustText,transform.position+new Vector3(3,0,0),Quaternion.Euler(90,180,90));
-        dt.GetComponent<roombaText>().rm = this;
+        dustText = Instantiate(dustText,transform.position+new Vector3(3,0,0),Quaternion.Euler(90,180,90));
+        dustText.GetComponent<roombaText>().rm = this;
     }
 
     // Update is called once per frame
@@ -63,6 +63,8 @@ public class RoombaManager : NetworkBehaviour
         balloon.SetActive(false);
         alive = false;
         RpcChangeBalloon(false, -1);
+        gm_script.CmdDropDust((int)(dust_collected*0.5),balloon.transform.position,transform.forward,transform.right);
+        CmdChangeDustCount((int)(0.25*dust_collected));
         StartCoroutine("RespawnBalloon");
     }
 
@@ -112,5 +114,15 @@ public class RoombaManager : NetworkBehaviour
         {
             balloon.GetComponent<MeshRenderer>().material = gm_script.balloonMats[colorIndex];
         }
+    }
+
+    [Command]
+    public void CmdChangeDustCount(int new_amount) {
+        dust_collected = new_amount;
+    }
+
+    [Command]
+    public void CmdDestroyObject(GameObject g) {
+        NetworkServer.Destroy(g);
     }
 }

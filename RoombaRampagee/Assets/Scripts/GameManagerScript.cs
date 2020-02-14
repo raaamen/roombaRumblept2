@@ -12,7 +12,9 @@ public class GameManagerScript : NetworkBehaviour
     public int team1score;
 
     public bool endGame;
-    public bool gameStarted = false;
+
+    [SyncVar]
+    public bool gameStarted;
 
     public float timer = 0;
 
@@ -25,6 +27,7 @@ public class GameManagerScript : NetworkBehaviour
     public Vector3 dustSpawn;
 
     public Material[] balloonMats;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +53,7 @@ public class GameManagerScript : NetworkBehaviour
         timer += Time.deltaTime;
         if (timer >= 3)
         {
-            spawnDust();
+            CmdSpawnDust();
             timer = 0;
         }
     }
@@ -61,7 +64,8 @@ public class GameManagerScript : NetworkBehaviour
         gameStarted = true;
     }
 
-    void spawnDust()
+    [Command]
+    void CmdSpawnDust()
     {
         //x coord upper = -4, x coord lower = -45
         //y coord = 0.2761
@@ -75,14 +79,16 @@ public class GameManagerScript : NetworkBehaviour
                 QueryTriggerInteraction.Collide);
             if (intersects.Length > 0) return;
             GameObject new_dust = Instantiate(dust, dustSpawn, Quaternion.identity);
+            NetworkServer.Spawn(new_dust);
         }
-        
-
     }
-
-
-
-
-
-
+    [Command]
+    public void CmdDropDust(int amount,Vector3 location,Vector3 scatter_dir_long,Vector3 scatter_dir_wide) {
+        for (int i = 0;i < amount;i++) {
+            Vector3 randomfactor = scatter_dir_long * Random.value * 10 + scatter_dir_wide * (float)(Random.value-0.5) * 5;
+            GameObject new_dust = Instantiate(dust,
+                location+randomfactor,Quaternion.identity);
+            NetworkServer.Spawn(new_dust);
+        }
+    }
 }

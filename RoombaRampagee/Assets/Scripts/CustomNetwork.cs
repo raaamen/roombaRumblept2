@@ -21,7 +21,7 @@ public class CustomNetwork : NetworkManager
         player.GetComponent<RoombaManager>().playerNum = playerCount;
 
         roombas.Add(player);
-        gm_script = GetComponent<GameManagerScript>();
+        gm_script = GameObject.FindWithTag("GameController").GetComponent<GameManagerScript>();
         gm_script.gameStarted = true;
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
     }
@@ -29,6 +29,7 @@ public class CustomNetwork : NetworkManager
     {
         if (player.gameObject != null)
         {
+            NetworkServer.Destroy(player.gameObject.GetComponent<RoombaManager>().dustText);
             NetworkServer.Destroy(player.gameObject);
             roombas.Remove(player.gameObject);
         }
