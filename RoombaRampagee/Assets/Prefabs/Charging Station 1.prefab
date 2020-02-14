@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2593616780594647217}
   - component: {fileID: 2593616780587302321}
   - component: {fileID: 2464068168774879356}
+  - component: {fileID: 3127682566910374462}
   m_Layer: 0
   m_Name: Charging Station 1
-  m_TagString: Untagged
+  m_TagString: Charger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +115,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 3096524310526396979}
   team: 0
+--- !u!65 &3127682566910374462
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2593616780596645489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1804075, y: 0.6917662, z: 1.8000004}
+  m_Center: {x: -0.011766762, y: 0.3458831, z: -0.000016361475}
 --- !u!1 &3096524310526396979
 GameObject:
   m_ObjectHideFlags: 0

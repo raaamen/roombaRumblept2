@@ -569,6 +569,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1 Roomba Variant
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 2f8ca5f8b17f83e4fb0cd2e18ff1f98c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Roomba
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2f8ca5f8b17f83e4fb0cd2e18ff1f98c,
         type: 3}
       propertyPath: m_LocalPosition.x
