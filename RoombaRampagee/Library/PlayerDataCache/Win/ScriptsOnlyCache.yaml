@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - BalloonMoveShake
+    - CustomNetwork
     - GameManagerScript
     - RoombaManager
     - RoombaMovement
@@ -26,7 +27,6 @@ ScriptsOnlyBuild:
     com.unity.multiplayer-hlapi.Runtime.dll:
     - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
-    - UnityEngine.Networking.NetworkManager
     - UnityEngine.Networking.NetworkManagerHUD
     - UnityEngine.Networking.NetworkStartPosition
     - UnityEngine.Networking.NetworkTransform
@@ -60,6 +60,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
     - Class: 95
@@ -89,31 +93,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10688}
     - Class: 114
-      Script: {instanceID: 10834}
+      Script: {instanceID: 10818}
     - Class: 114
-      Script: {instanceID: 10886}
+      Script: {instanceID: 10888}
     - Class: 114
-      Script: {instanceID: 11124}
+      Script: {instanceID: 11126}
     - Class: 114
-      Script: {instanceID: 11206}
+      Script: {instanceID: 11208}
     - Class: 114
-      Script: {instanceID: 11268}
+      Script: {instanceID: 11270}
     - Class: 114
-      Script: {instanceID: 11286}
+      Script: {instanceID: 11288}
     - Class: 114
-      Script: {instanceID: 11434}
+      Script: {instanceID: 11436}
     - Class: 114
-      Script: {instanceID: 11594}
+      Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 11794}
+      Script: {instanceID: 11796}
     - Class: 114
-      Script: {instanceID: 11922}
+      Script: {instanceID: 11924}
     - Class: 114
-      Script: {instanceID: 11988}
+      Script: {instanceID: 11990}
     - Class: 114
-      Script: {instanceID: 12052}
+      Script: {instanceID: 12054}
     - Class: 114
-      Script: {instanceID: 12076}
+      Script: {instanceID: 12078}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -179,7 +183,7 @@ ScriptsOnlyBuild:
     className: LightningBolt
   - hash:
       serializedVersion: 2
-      Hash: e02d60264cda3bde8318c551211e7927
+      Hash: ee809824246c6c908c9cbe21726d513b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: chargingStation
@@ -377,7 +381,7 @@ ScriptsOnlyBuild:
     className: RuntimeBvhLoader
   - hash:
       serializedVersion: 2
-      Hash: c109c2501b70ae3fc3f9ec21aa8e6626
+      Hash: dbf6e39e23c5b9038dd78fcb91264ed0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RoombaManager
@@ -443,7 +447,7 @@ ScriptsOnlyBuild:
     className: LightningAttack
   - hash:
       serializedVersion: 2
-      Hash: 230b591c50eb20aae9a9d1ff110430ad
+      Hash: e82e8447e3955d27845bd9e17cb40a4c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RoombaMovement
@@ -495,6 +499,12 @@ ScriptsOnlyBuild:
     assemblyName: com.unity.multiplayer-hlapi.Runtime.dll
     namespaceName: UnityEngine.Networking
     className: NetworkCallbacks
+  - hash:
+      serializedVersion: 2
+      Hash: c3fe4b71d8c017537fb30ab1c8b45650
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CustomNetwork
   - hash:
       serializedVersion: 2
       Hash: e0964be4174189cfab3e567ac951deaa

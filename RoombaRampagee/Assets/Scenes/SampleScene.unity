@@ -1171,6 +1171,11 @@ PrefabInstance:
       propertyPath: m_AssetId.i15
       value: 111
       objectReference: {fileID: 0}
+    - target: {fileID: 7842143738044733055, guid: 6ab8d143029de424a85457ce5ff94a6f,
+        type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ab8d143029de424a85457ce5ff94a6f, type: 3}
 --- !u!1 &857256415
@@ -1717,6 +1722,7 @@ MonoBehaviour:
   balloon: {fileID: 0}
   balloonOffset: {x: 0, y: 0, z: 0}
   beginningimage: {fileID: 0}
+  next_player_team: 0
   balloonMats:
   - {fileID: 2100000, guid: 5829d033c7876cb40ad6ec9c71f541f3, type: 2}
   - {fileID: 2100000, guid: 0c733b1b9de96da4aa7055d9d1844ad1, type: 2}
@@ -1747,7 +1753,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1196558814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10c2fd873b12541b392f10ecc4846574, type: 3}
+  m_Script: {fileID: 11500000, guid: e4471667d33ef7f4aad162e6dd14b2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkPort: 7777
@@ -1821,6 +1827,7 @@ MonoBehaviour:
   matchSize: 4
   isNetworkActive: 0
   matchMaker: {fileID: 0}
+  gm_script: {fileID: 1196558816}
 --- !u!1 &1237913679
 GameObject:
   m_ObjectHideFlags: 0

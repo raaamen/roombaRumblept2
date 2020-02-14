@@ -9,7 +9,7 @@ public class RoombaManager : NetworkBehaviour
     public bool alive = true;
 
     [SyncVar]
-    public int team = 0;
+    public int team = -1;
 
     [SyncVar]
     public int dust_collected;
@@ -27,6 +27,7 @@ public class RoombaManager : NetworkBehaviour
 
     public GameManagerScript gm_script;
     // Start is called before the first frame update
+
     void Start()
     {
         if (!isLocalPlayer)
@@ -34,7 +35,7 @@ public class RoombaManager : NetworkBehaviour
             playerIndicator.active = false;
         }
         gm_script = GameObject.FindWithTag("GameController").GetComponent<GameManagerScript>();
-        RpcChangeBalloon(true, team * 2);
+        ChangeBalloon(alive, team * 2);
     }
 
     // Update is called once per frame
@@ -74,6 +75,24 @@ public class RoombaManager : NetworkBehaviour
 
     [ClientRpc]
     public void RpcChangeBalloon(bool state, int colorIndex)
+    {
+        if (state == false)
+        {
+            knife.GetComponent<AudioSource>().Play();
+        }
+        balloon.SetActive(state);
+        if (colorIndex != -1)
+        {
+            balloon.GetComponent<MeshRenderer>().material = gm_script.balloonMats[colorIndex];
+        }
+    }
+
+    [Command]
+    public void CmdChangeBalloon(bool state, int colorIndex) {
+        RpcChangeBalloon(state,colorIndex);
+    }
+
+    public void ChangeBalloon(bool state, int colorIndex)
     {
         if (state == false)
         {
