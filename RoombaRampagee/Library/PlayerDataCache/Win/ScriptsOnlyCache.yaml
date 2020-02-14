@@ -10,8 +10,6 @@ ScriptsOnlyBuild:
     - attackScript
     - chargingStation
     - roombaText
-    Unity.TextMeshPro.Editor.dll:
-    - TMPro.EditorUtilities.TMP_EditorPanel
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
     - TMPro.TMP_Settings
@@ -130,7 +128,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12080}
     - Class: 114
-      Script: {instanceID: 20192}
+      Script: {instanceID: 14552}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
